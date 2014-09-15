@@ -1,0 +1,9 @@
+{
+  "psql": [
+    {
+      "credentials": {
+        "uri": "postgres://machete:machete@172.16.234.144:5432/postgres"
+      }
+    }
+  ]
+}

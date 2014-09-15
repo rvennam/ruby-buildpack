@@ -1,0 +1,4 @@
+#!/bin/bash -l
+
+chruby 2.1.2
+bundle package --all

@@ -7,7 +7,7 @@ describe "Fetcher" do
   let(:online_fetcher) { class_double("OnlineFetcher").as_stubbed_const }
   let(:offline_fetcher) { class_double("OfflineFetcher").as_stubbed_const }
   let(:host_url) { "localhost" }
-  let(:path) { double }
+  let(:path) { double(:path) }
   let(:pathname) { class_double("Pathname").as_stubbed_const }
 
   before do
@@ -36,14 +36,14 @@ describe "Fetcher" do
   end
 
   describe "#fetch_untar" do
-    let(:files_to_extract) { double }
+    let(:files_to_extract) { double(:files_to_extract) }
 
 
     context "when there are no packaged dependencies (online buildpack)" do
       let(:is_online) { true }
 
       it "delegates to online fetcher" do
-        expect(online_fetcher).to receive(:fetch_untar).with(path, files_to_extract, host_url, subject.method(:curl_command), subject.method(:run!))
+        expect(online_fetcher).to receive(:fetch_untar).with(path, host_url, files_to_extract, subject.method(:curl_command), subject.method(:run!))
         subject.fetch_untar(path, files_to_extract)
       end
 
@@ -57,7 +57,7 @@ describe "Fetcher" do
       let(:is_online) { false }
 
       it "delegates to offline fetcher" do
-        expect(offline_fetcher).to receive(:fetch_untar).with(path, files_to_extract, host_url, subject.method(:error), subject.method(:run!))
+        expect(offline_fetcher).to receive(:fetch_untar).with(path, host_url, files_to_extract, subject.method(:error), subject.method(:run!))
         subject.fetch_untar(path, files_to_extract)
       end
 

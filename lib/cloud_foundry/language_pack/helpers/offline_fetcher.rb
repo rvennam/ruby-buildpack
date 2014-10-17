@@ -5,10 +5,6 @@ class OfflineFetcher
     if DependencyExistenceChecker.exists? dependency_filename
       run_callback.call("cp #{File.join(DEPENDENCIES_PATH, dependency_filename)} #{original_filename}")
     else
-      puts("**************** fetch: dependency_filename: #{dependency_filename}")
-      puts("**************** fetch: host_url: #{host_url}")
-      puts("**************** fetch: files_to_extract: #{files_to_extract}")
-
       error_callback.call(error_message(original_filename))
     end
   end
@@ -19,11 +15,7 @@ class OfflineFetcher
     if DependencyExistenceChecker.exists? dependency_filename
       run_callback.call("tar zxf #{File.join(DEPENDENCIES_PATH, dependency_filename)} #{files_to_extract}")
     else
-      puts("**************** fetch_untar: dependency_filename: #{dependency_filename}")
-      puts("**************** fetch_untar: host_url: #{host_url}")
-      puts("**************** fetch_untar: files_to_extract: #{files_to_extract}")
-
-      error_callback.call(error_message(original_filename, dependency_filename))
+      error_callback.call(error_message(original_filename))
     end
   end
 

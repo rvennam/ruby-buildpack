@@ -19,9 +19,9 @@ module LanguagePack
 
     def fetch_untar(path, files_to_extract="")
       if OnlineBuildpackDetector.online?
-        OnlineFetcher.fetch_untar(path, files_to_extract, @host_url, self.method(:curl_command), self.method(:run!))
+        OnlineFetcher.fetch_untar(path, @host_url, files_to_extract, self.method(:curl_command), self.method(:run!))
       else
-        OfflineFetcher.fetch_untar(path, files_to_extract, @host_url, self.method(:error), self.method(:run!))
+        OfflineFetcher.fetch_untar(path, @host_url, files_to_extract, self.method(:error), self.method(:run!))
       end
     end
   end

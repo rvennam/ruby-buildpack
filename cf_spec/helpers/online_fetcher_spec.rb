@@ -16,7 +16,7 @@ describe "OnlineFetcher" do
         and_return("curl command")
       expect(run_callback).to receive(:call).with("curl command - | tar zxf - some_file_to_extract some_other_file_to_extract")
 
-      OnlineFetcher.fetch_untar(path, files_to_extract, host_url, curl_command_callback, run_callback)
+      OnlineFetcher.fetch_untar(path, host_url, files_to_extract, curl_command_callback, run_callback)
     end
   end
 end

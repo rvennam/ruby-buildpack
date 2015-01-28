@@ -6,8 +6,10 @@ GIT
     buildpack-packager (0.0.1)
       activesupport (~> 4.1.8)
 
-PATH
-  remote: ../machete
+GIT
+  remote: git://github.com/cf-buildpacks/machete.git
+  revision: 7d708666f7bc8c4ddabb17fcbcab0af79c3f1760
+  branch: retry-guid-finder
   specs:
     machete (0.0.1)
       httparty

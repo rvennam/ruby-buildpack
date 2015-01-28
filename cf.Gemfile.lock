@@ -6,10 +6,8 @@ GIT
     buildpack-packager (0.0.1)
       activesupport (~> 4.1.8)
 
-GIT
-  remote: git://github.com/cf-buildpacks/machete.git
-  revision: cc11c34ea4cf4f8708ce05816177dd8327cb604d
-  branch: master
+PATH
+  remote: ../machete
   specs:
     machete (0.0.1)
       httparty
